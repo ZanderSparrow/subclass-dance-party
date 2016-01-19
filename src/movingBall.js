@@ -22,7 +22,7 @@ MovingBall.prototype.step = function() {
   this.$node.css(this.styleSettings);
   // this.$node.css("left", this.x + "px");
   // this.$node.css("top", this.y + "px");
-  this.velocityFlagToggleCheck();
+  this.velocityChanger();
 };
 
 MovingBall.prototype.velocityFlagToggleCheck = function() {

@@ -21,12 +21,22 @@ $(document).ready(function() {
     var dancerMakerFunction = window[dancerMakerFunctionName];
 
     // make a dancer with a random position
-
-    console.log(dancerMakerFunction);
     var windowHeight = $('body').height() - 50;
     var windowWidth = $('body').width() - 50;
     var ball = new dancerMakerFunction(windowWidth, windowHeight);
     $('body').append(ball.$node);
   });
+    $('#clear-planets').on('click', function() {
+        $('span').remove();
+    });
+    $('#collision-toggle').on('click', function() {
+        globalCollisionToggle = !globalCollisionToggle;
+        $('#collision-toggle').text(globalCollisionToggle ? 'Toggle Collision: ON' : 'Toggle Collision: OFF');
+    });
+
 });
+var numberCount = 0;
+var globalCollisionToggle = false;
+// global object of all  x y values of all balls
+var ballPositions = {};
 
