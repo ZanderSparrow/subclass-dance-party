@@ -23,9 +23,9 @@ $(document).ready(function() {
     // make a dancer with a random position
 
     console.log(dancerMakerFunction);
-    var windowHeight = $('body').height();
-    var windowWidth = $('body').width();
-    var ball = new dancerMakerFunction(10, 10, windowWidth, windowHeight);
+    var windowHeight = $('body').height() - 20;
+    var windowWidth = $('body').width() - 20;
+    var ball = new dancerMakerFunction(windowWidth, windowHeight);
     $('body').append(ball.$node);
   });
 });
