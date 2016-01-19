@@ -3,6 +3,7 @@ function GravityBall(windowWidth, windowHeight) {
   this.grav = 9.8;
   this.windowWidth = windowWidth;
   this.windowHeight = windowHeight;
+  this.$node.css('background-image', 'url("planet_img/earth.png")');
 
 
 }

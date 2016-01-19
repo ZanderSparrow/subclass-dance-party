@@ -23,8 +23,8 @@ $(document).ready(function() {
     // make a dancer with a random position
 
     console.log(dancerMakerFunction);
-    var windowHeight = $('body').height() - 20;
-    var windowWidth = $('body').width() - 20;
+    var windowHeight = $('body').height() - 50;
+    var windowWidth = $('body').width() - 50;
     var ball = new dancerMakerFunction(windowWidth, windowHeight);
     $('body').append(ball.$node);
   });
