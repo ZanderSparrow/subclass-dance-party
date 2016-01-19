@@ -11,17 +11,7 @@ function GravityBall(windowWidth, windowHeight) {
 GravityBall.prototype = Object.create(ChaosBall.prototype);
 GravityBall.prototype.velocityChanger = function() {
   this.ySpeed = this.ySpeed + this.grav * 0.01;
-  if(this.y > this.windowHeight) {
-    this.ySpeed *= -0.9;
-    this.y = this.windowHeight;
-  }
-  if(this.y < 0) {
-    this.ySpeed *= -1;
-    this.y = 0;
-  }
-  if(this.x > this.windowWidth || this.x < 0) {
-    this.xSpeed *= -1;
-  }
+  MovingBall.prototype.velocityChanger.call(this);
   // check for collision
     // delete the old position from the global object
     // check if new position causes a collision

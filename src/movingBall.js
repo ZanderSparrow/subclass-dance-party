@@ -25,7 +25,29 @@ MovingBall.prototype.step = function() {
   this.velocityChanger();
 };
 
-MovingBall.prototype.velocityFlagToggleCheck = function() {
-  if(this.y > this.windowHeight || this.y < 0) this.ySpeed *= -1;
-  if(this.x > this.windowWidth || this.x < 0) this.xSpeed *= -1;
+MovingBall.prototype.velocityChanger = function() {
+  if(this.y > this.windowHeight) {
+    this.bounce("y", "b");
+  } else if(this.y < 0) {
+    this.bounce("y", "t");
+  } else if(this.x > this.windowWidth) {
+    this.bounce("x", "b");
+  } else if(this.x < 0) {
+    this.bounce("x", "t");
+  }
+};
+
+MovingBall.prototype.bounce = function(xy, tb) {
+  // takes x or y and top or bottom as params
+  if(xy === "x" && tb == "t") {
+    this.xSpeed *= -1;
+  } else if(xy === "x" && tb === "b") {
+    this.xSpeed *= -0.9;
+  } else if(xy === "y" && tb === "b") {
+    this.ySpeed *= -0.9;
+    this.y = this.windowHeight;
+  } else if(xy === "y" && tb === "t") {
+    this.ySpeed *= -1;
+    this.y = 0;
+  }
 };
