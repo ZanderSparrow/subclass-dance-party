@@ -22,10 +22,10 @@ $(document).ready(function() {
 
     // make a dancer with a random position
 
-    
+    console.log(dancerMakerFunction);
     var windowHeight = $('body').height();
     var windowWidth = $('body').width();
-    var ball = new dancerMakerFunction(1, 1, windowWidth, windowHeight);
+    var ball = new dancerMakerFunction(10, 10, windowWidth, windowHeight);
     $('body').append(ball.$node);
   });
 });

@@ -1,5 +1,5 @@
 function MovingBall(xSpeed, ySpeed, windowWidth, windowHeight) {
-  Dancer.call(this, 100, 100, 1);
+  Dancer.call(this, 10, 10, 10);
   this.xSpeed = xSpeed; // m/s
   this.ySpeed = ySpeed; // m/s
   this.x = this.left;
