@@ -4,7 +4,7 @@ var BlinkyDancer = function(top, left, timeBetweenSteps) {
   // so we must keep a copy of the old version of this function
 };
 
-BlinkyDancer.prototype = Object.create(Dancer.prototype)
+BlinkyDancer.prototype = Object.create(Dancer.prototype);
 
 BlinkyDancer.prototype.step = function() {
   // call the old version of step at the beginning of any call to this new version of step
