@@ -7,8 +7,6 @@ function MovingBall(windowWidth, windowHeight) {
   this.windowWidth = windowWidth;
   this.windowHeight = windowHeight;
   this.radius = 25;
-  // Add position to positions obj as k = "x, y" at center
-  ballPositions[(this.x + this.radius) + ", " + (this.y + this.radius)] = true;
 }
 
 MovingBall.prototype = Object.create(Dancer.prototype);
@@ -53,8 +51,10 @@ MovingBall.prototype.bounce = function(xy, resist) {
   // takes x or y and top or bottom as params
   if(xy === "x" && !resist) {
     this.xSpeed *= -1;
+    this.x = 0;
   } else if(xy === "x" && resist) {
     this.xSpeed *= -0.9;
+    this.x = this.windowWidth;
   } else if(xy === "y" && resist) {
     this.ySpeed *= -0.9;
     this.y = this.windowHeight;

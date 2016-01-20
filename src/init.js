@@ -29,14 +29,13 @@ $(document).ready(function() {
     $('#clear-planets').on('click', function() {
         $('span').remove();
     });
-    $('#collision-toggle').on('click', function() {
-        globalCollisionToggle = !globalCollisionToggle;
-        $('#collision-toggle').text(globalCollisionToggle ? 'Toggle Collision: ON' : 'Toggle Collision: OFF');
+    $('#add-sun').on('click', function() {
+        isSun = !isSun;
+        $('#add-sun').text(isSun ? 'Sun: ON' : 'Sun: OFF');
+        $('#the-sun').toggle()
+
     });
 
 });
-var numberCount = 0;
-var globalCollisionToggle = false;
-// global object of all  x y values of all balls
-var ballPositions = {};
+var isSun = false;
 

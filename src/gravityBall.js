@@ -10,11 +10,29 @@ function GravityBall(windowWidth, windowHeight) {
 
 GravityBall.prototype = Object.create(ChaosBall.prototype);
 GravityBall.prototype.velocityChanger = function() {
-  this.ySpeed = this.ySpeed + this.grav * 0.01;
-  MovingBall.prototype.velocityChanger.call(this);
-  // check for collision
-    // delete the old position from the global object
-    // check if new position causes a collision
-      // If N, go to that and add a new position key to onj
-      // If Y, bouncy in proper direction
+  
+  if (isSun) {
+    // if (this.y === blackHoleLocationY && this.x === blackHoleLocationX) this.$node.remove();
+    var sunGrav = 20;
+    var sunLocationX = this.windowWidth / 2;
+    var sunLocationY = this.windowHeight / 2;
+    // var diffWidth = 
+    // var diffHeight = 
+
+    var heightDffDistance = Math.abs(sunLocationY - this.y);
+    var widthDiffDistance = Math.abs(sunLocationX - this.x);
+    ratio = widthDiffDistance / heightDffDistance;
+
+    if (this.y < sunLocationY) { 
+      this.ySpeed = this.ySpeed + sunGrav * 0.01;
+      if (this.x < sunLocationX) this.xSpeed = ratio * this.ySpeed;
+    }
+    if (this.y > sunLocationY) { 
+      this.ySpeed = this.ySpeed - sunGrav * 0.01;
+    if (this.x > sunLocationX) this.xSpeed = ratio * this.ySpeed;
+    }
+  } else {
+    this.ySpeed = this.ySpeed + this.grav * 0.01;
+    MovingBall.prototype.velocityChanger.call(this);
+  }
 };

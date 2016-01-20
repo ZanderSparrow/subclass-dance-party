@@ -1,3 +1,8 @@
+@font-face {
+    font-family: moon;
+    src: url(Moon_Light.otf);
+}
+
 body, html{
   height:100%;
 }
@@ -8,6 +13,13 @@ body{
 }
 body, a:link, a:visited, a:active{
   color: lightblue;
+  font-family: moon;
+}
+.right-items {
+  margin-top: 20px;
+  padding-left: 17px;
+  position: relative;
+  top: 5px;
 }
 .title, .addDancerButton{
   padding:5px 12px;
@@ -24,4 +36,13 @@ body, a:link, a:visited, a:active{
   width: 50px;
   height: 50px;
   position:absolute;
+}
+#the-sun {
+  display:none;
+  height: 120px;
+  width: 120px;
+  background-image: url('planet_img/sun.png');
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
 }
