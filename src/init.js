@@ -1,3 +1,5 @@
+var globalBalls = [];
+var counter = 0;
 $(document).ready(function() {
   window.dancers = [];
 
@@ -24,18 +26,32 @@ $(document).ready(function() {
     var windowHeight = $('body').height() - 50;
     var windowWidth = $('body').width() - 50;
     var ball = new dancerMakerFunction(windowWidth, windowHeight);
-    $('body').append(ball.$node);
+    globalBalls.push(ball);
+    (function(currentCount) {
+      $('body').append(ball.$node.on('click', function() {
+        if(Math.round(Math.random())) {
+          globalBalls[currentCount].ySpeed -= Math.random() * 60 / globalBalls[currentCount].grav;  
+        } else {
+          globalBalls[currentCount].ySpeed += Math.random() * 60 / globalBalls[currentCount].grav;
+        }
+        if(Math.round(Math.random())) {
+          globalBalls[currentCount].xSpeed -= Math.random() * 5;  
+        } else {
+          globalBalls[currentCount].xSpeed += Math.random() * 5;
+        }
+      }));
+    })(counter);
+    counter++;
   });
-    $('#clear-planets').on('click', function() {
-        $('span').remove();
-    });
-    $('#add-sun').on('click', function() {
-        isSun = !isSun;
-        $('#add-sun').text(isSun ? 'Sun: ON' : 'Sun: OFF');
-        $('#the-sun').toggle()
 
-    });
+  $('#clear-planets').on('click', function() {
+    $('span').remove();
+  });
+  $('#add-sun').on('click', function() {
+    isSun = !isSun;
+    $('#add-sun').text(isSun ? 'Sun: ON' : 'Sun: OFF');
+    $('#the-sun').toggle();
+  });
 
 });
 var isSun = false;
-

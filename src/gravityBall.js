@@ -10,14 +10,12 @@ function GravityBall(windowWidth, windowHeight) {
 
 GravityBall.prototype = Object.create(ChaosBall.prototype);
 GravityBall.prototype.velocityChanger = function() {
-  
+
   if (isSun) {
     // if (this.y === blackHoleLocationY && this.x === blackHoleLocationX) this.$node.remove();
     var sunGrav = 20;
     var sunLocationX = this.windowWidth / 2;
     var sunLocationY = this.windowHeight / 2;
-    // var diffWidth = 
-    // var diffHeight = 
 
     var heightDffDistance = Math.abs(sunLocationY - this.y);
     var widthDiffDistance = Math.abs(sunLocationX - this.x);
@@ -27,9 +25,9 @@ GravityBall.prototype.velocityChanger = function() {
       this.ySpeed = this.ySpeed + sunGrav * 0.01;
       if (this.x < sunLocationX) this.xSpeed = ratio * this.ySpeed;
     }
-    if (this.y > sunLocationY) { 
+    if (this.y > sunLocationY) {
       this.ySpeed = this.ySpeed - sunGrav * 0.01;
-    if (this.x > sunLocationX) this.xSpeed = ratio * this.ySpeed;
+      if (this.x > sunLocationX) this.xSpeed = ratio * this.ySpeed;
     }
   } else {
     this.ySpeed = this.ySpeed + this.grav * 0.01;
